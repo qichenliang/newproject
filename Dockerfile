@@ -7,3 +7,5 @@ RUN npm install
 COPY --chown=app:node . .
 EXPOSE 3000
 CMD [ "npm", "start" ]
+
+netshit at the end
