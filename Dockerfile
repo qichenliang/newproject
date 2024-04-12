@@ -1,7 +1,9 @@
 FROM node:lts-alpine
+addgroup app && addusers -S -G app app
+USER app
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY --chown=app:node  package*.json .
 RUN npm install
-COPY . .
-ENV PORT=3000
+COPY --chown=app:node . .
+EXPOSE 3000
 CMD [ "npm", "start" ]
